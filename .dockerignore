@@ -1,0 +1,33 @@
+.git
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+!/logs/.gitkeep
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Compiled C extensions
+*.so
+
+# SQLite & other local DBs
+*.db
+
+# Test artifacts
+htmlcov/
+.coverage
+pytest_cache/
+
+# MacOS
+.DS_Store
