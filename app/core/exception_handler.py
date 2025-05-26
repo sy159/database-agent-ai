@@ -16,7 +16,7 @@ from app.core.response import json, fail_by_code
 logger = logging.getLogger(__name__)
 
 
-def http_exception_handler(request: Request, exc: Exception) -> Response:
+async def http_exception_handler(request: Request, exc: Exception) -> Response:
     """
     捕获 HTTPException（404/401/403/...）。
     """
@@ -37,7 +37,7 @@ def http_exception_handler(request: Request, exc: Exception) -> Response:
     return json(code=status, msg=detail)
 
 
-def validation_exception_handler(request: Request, exc: Exception) -> Response:
+async def validation_exception_handler(request: Request, exc: Exception) -> Response:
     """
     捕获请求验证错误（422）。
     """
@@ -48,7 +48,7 @@ def validation_exception_handler(request: Request, exc: Exception) -> Response:
     return json(code=HttpBadRequest.code, msg=f"参数验证失败: {errors}")
 
 
-def global_exception_handler(request: Request, exc: Exception) -> Response:
+async def global_exception_handler(request: Request, exc: Exception) -> Response:
     """
     兜底捕获其余所有 Exception（500）。
     """

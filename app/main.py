@@ -8,8 +8,12 @@ from app.core.exception_handler import (
     validation_exception_handler,
     global_exception_handler,
 )
+from app.core.logger import init_logger, logger
 
 app = FastAPI(title="database-agent-ai")
+
+init_logger()
+logger.info("logger initialized")
 
 # 先处理 HTTPException
 app.add_exception_handler(StarletteHTTPException, http_exception_handler)
